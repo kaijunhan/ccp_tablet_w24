@@ -35,7 +35,7 @@
                 also a lot of rolling. Lots and lots of rolling.</p>
             <h3>Photo Gallery</h3>
 
-            <div class="gallery-container">
+            <div class="gallery-container" tabindex="0">
                 <img class="gallery-item" src="images/bacon_bandana.JPG" width="200" alt="Brown labradoodle wearing an orange bandana">
                 <img class="gallery-item" src="images/bacon_graduation.JPG" width="200" alt="Small labradoodle puppy wearing a graduation cap and gown">
                 <video class="gallery-item" width="200" controls>
@@ -65,10 +65,10 @@
             knows him.</p>
             <h3>Photo Gallery</h3>
             <div class="gallery-container">
-                <img src="images/peddie_play.jpg" width="200" alt="Peddie is playing in the snow.">
-                <img src="images/peddie_swim.jpg" width="200" alt="Peddie is swimming in a lake.">
-                <img src="images/peddie_sleep.jpg" width="200" alt="Peddie loves sleeping on the couch.">
-                <img src="images/peddie_smile.jpg" width="200" alt="Peddie is the sweetest in the world.">
+                <img class="gallery-item" src="images/peddie_play.jpg" width="200" alt="Peddie is playing in the snow.">
+                <img class="gallery-item" src="images/peddie_swim.jpg" width="200" alt="Peddie is swimming in a lake.">
+                <img class="gallery-item" src="images/peddie_sleep.jpg" width="200" alt="Peddie loves sleeping on the couch.">
+                <img class="gallery-item" src="images/peddie_smile.jpg" width="200" alt="Peddie is the sweetest in the world.">
             </div>
             
         
@@ -90,10 +90,10 @@
             <p>Miumiu is kind of timid and afraid to meet strangers. But she is very close to her family, she loves to lie next to her family. She is very talkative and loves to meow.</p>
             <h3>Photo Gallery</h3>
             <div class="gallery-container">
-                <img src="images/miumiu_in_the_bag.jpeg" width="200" alt="Silver gradient British shorthair cat in a pink bag">
-                <img src="images/miumiu_on_the_bed.jpeg" width="200" alt="Silver gradient British shorthair cat lying on the bed">
-                <img src="images/miumiu_sleeping.jpeg" width="200" alt="Silver gradient British shorthair cat sleeping on the bed">
-                <img src="images/miumiu_under_sunshine.jpeg" width="200" alt="Silver gradient British shorthair cat under the sunshine">
+                <img class="gallery-item" src="images/miumiu_in_the_bag.jpeg" width="200" alt="Silver gradient British shorthair cat in a pink bag">
+                <img class="gallery-item" src="images/miumiu_on_the_bed.jpeg" width="200" alt="Silver gradient British shorthair cat lying on the bed">
+                <img class="gallery-item" src="images/miumiu_sleeping.jpeg" width="200" alt="Silver gradient British shorthair cat sleeping on the bed">
+                <img class="gallery-item" src="images/miumiu_under_sunshine.jpeg" width="200" alt="Silver gradient British shorthair cat under the sunshine">
             </div>
             
         
@@ -120,10 +120,10 @@
             corn turned out to be unripe, so she ended up vomiting it all later.</p>
             <h3>Photo Gallery</h3>
             <div class="gallery-container">
-                <img src="images/sage_young.jpeg" width="200" alt="Photos of Sprout when he was born with his siblings">
-                <img src="images/sage_car.jpeg" width="200" alt="A happy golden retriever is sitting in the car’s backseat.">
-                <img src="images/sage_sleep.jpeg" width="200" alt="A golden retriever is sleeping on the couch.">
-                <img src="images/sage_pet.jpeg" width="200" alt="A man’s hand is petting a golden retriever’s neck.">
+                <img class="gallery-item" src="images/sage_young.jpeg" width="200" alt="Photos of Sprout when he was born with his siblings">
+                <img class="gallery-item" src="images/sage_car.jpeg" width="200" alt="A happy golden retriever is sitting in the car’s backseat.">
+                <img class="gallery-item" src="images/sage_sleep.jpeg" width="200" alt="A golden retriever is sleeping on the couch.">
+                <img class="gallery-item" src="images/sage_pet.jpeg" width="200" alt="A man’s hand is petting a golden retriever’s neck.">
             </div>
             
         
@@ -147,10 +147,10 @@
             <P>She became an internet sensation with 2.3 million followers on her smoothiethecat Instagram account.</p>
             <h3>Photo Gallery</h3>
             <div class="gallery-container">
-                <img src="images/Smoothie_yawn.jpg" width="200" alt="Smoothie is yawing">
-                <img src="images/Smoothie_lying.jpg" width="200" alt="Smoothie is lying.">
-                <img src="images/Smoothie_staring.jpg" width="200" alt="Smoothie is staring at you">
-                <img src="images/Smoothie_curious.jpg" width="200" alt="Smoothie is curious about the world">
+                <img class="gallery-item" src="images/Smoothie_yawn.jpg" width="200" alt="Smoothie is yawing">
+                <img class="gallery-item" src="images/Smoothie_lying.jpg" width="200" alt="Smoothie is lying.">
+                <img class="gallery-item" src="images/Smoothie_staring.jpg" width="200" alt="Smoothie is staring at you">
+                <img class="gallery-item" src="images/Smoothie_curious.jpg" width="200" alt="Smoothie is curious about the world">
             </div>
             
         
@@ -163,6 +163,23 @@
         
         </div>
     </main>
-    
+    <!-- Add the script tag just before the closing body tag -->
+    <script>
+        // This script adds keyboard control to gallery containers
+        document.querySelectorAll('.gallery-container').forEach((container) => {
+            container.setAttribute('tabindex', '0'); // Make the container focusable
+
+            // Add an event listener for the keydown event
+            container.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowLeft') {
+                    // Scroll left
+                    container.scrollBy({ left: -container.offsetWidth, behavior: 'smooth' });
+                } else if (event.key === 'ArrowRight') {
+                    // Scroll right
+                    container.scrollBy({ left: container.offsetWidth, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

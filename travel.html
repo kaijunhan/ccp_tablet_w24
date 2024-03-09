@@ -26,28 +26,28 @@
             <h2>Yellowstone National Park</h2>
             <h3>Photo Gallery</h3>
             <div class="gallery-container">
-                <img src="images/yellowstone_travertine.JPG" width="200" alt="A large mound of multi-colored travertine">
+                <img class="gallery-item" src="images/yellowstone_travertine.JPG" width="200" alt="A large mound of multi-colored travertine">
                 <span>Mammoth Hot Springs has a number of actively forming Travertine terraces.</span>
                 
-                <img src="images/yellowstone_sunset.jpg" width="200"
+                <img class="gallery-item" src="images/yellowstone_sunset.jpg" width="200"
                     alt="Sunset over mountains with some charred trees in the foreground">
                 <span>The drive to Lamar Valley requires some dangerous roads. But the result is amazing sunset views.</span>
                 
-                <video width="200" controls>
+                <video class="gallery-item" width="200" controls>
                     <source src="images/yellowstone_prism.MOV">
                     The multicolored layers get their hues from different species of bacteria living in the cooler water around the
                     spring.
                 </video>
                 
-                <video width="200" controls>
+                <video class="gallery-item" width="200" controls>
                     <source src="images/yellowstone_buffalo.MOV">
                     The buffalo were so common along the roads in Yellowstone that our mantra became "If it ain't lickin the car, we
                     aren't
                     stopping."
                 </video>
-                <img src="images/yellowstone_sulphur_springs.JPG" width="200"
+                <img class="gallery-item" src="images/yellowstone_sulphur_springs.JPG" width="200"
                     alt="A large spring with clouds of sulfur smoke rising from it.">
-                <span>If you can handle the odor, the Yellowstone Sulphur Springs is a great place to hike.</span>
+                <span >If you can handle the odor, the Yellowstone Sulphur Springs is a great place to hike.</span>
             </div>
             
             
@@ -70,20 +70,20 @@
 
             <h3>Photo Gallery</h3>
             <div class="gallery-container">
-                <img src="images/StatelineLakeTahoeCam.jpg" width="200" alt="view of lake tahoe.">
+                <img class="gallery-item" src="images/StatelineLakeTahoeCam.jpg" width="200" alt="view of lake tahoe.">
                 <span>Stateline Lake Tahoe</span>
                 
-                <img src="images/tahoe_beach_retreat_aerial.jpg" width="200"
+                <img class="gallery-item" src="images/tahoe_beach_retreat_aerial.jpg" width="200"
                     alt="Sunset over mountains with some charred trees in the foreground.">
                 <span>Tahoe beach retreat aerial</span>
                 
-                <img src="images/kid.webp" width="200" alt="kid at the beach">
+                <img class="gallery-item" src="images/kid.webp" width="200" alt="kid at the beach">
                 <span>Best thing to do in lake tahoe before summer ends</span>
                 
-                <img src="images/Firepit_at_Zephyr_Cove_RV_Park.jpeg" width="200" alt="people lounging around a firepit.">
+                <img class="gallery-item" src="images/Firepit_at_Zephyr_Cove_RV_Park.jpeg" width="200" alt="people lounging around a firepit.">
                 <span>Firepit at Zephyr Cove RV Park</span>
                 
-                <img src="images/Hikers_watching_sunset.jpg" width="200" alt="hikers watching a sunset.">
+                <img class="gallery-item" src="images/Hikers_watching_sunset.jpg" width="200" alt="hikers watching a sunset.">
                 <span>Hikers watching sunset</span>
             </div>
             
@@ -105,19 +105,19 @@
         
             <h3>Photo Gallery</h3>
             <div class="gallery-container">
-                <img src="images/Niagara_Falls_2.jpg" width="200" alt="A visualization of the ‘Horseshoe’ part of the falls">
+                <img class="gallery-item" src="images/Niagara_Falls_2.jpg" width="200" alt="A visualization of the ‘Horseshoe’ part of the falls">
                 <span>The ‘Horseshoe’</span>
                 
-                <img src="images/Niagara_Falls_Rainbow.jpg" width="200" alt="Niagara Falls with a rainbow touching down in it">
+                <img class="gallery-item" src="images/Niagara_Falls_Rainbow.jpg" width="200" alt="Niagara Falls with a rainbow touching down in it">
                 <span>A rainbow in Niagara Falls</span>
                 
-                <img src="images/Niagara_Falls_Sunset.jpg" width="200" alt="An orange sky overlooking Niagara Falls">
+                <img class="gallery-item" src="images/Niagara_Falls_Sunset.jpg" width="200" alt="An orange sky overlooking Niagara Falls">
                 <span>A sunset at Niagara Falls</span>
                 
-                <img src="images/Niagara_Falls_Colorful.jpg" width="200" alt="Niagara Falls illuminated with colored lights">
+                <img class="gallery-item" src="images/Niagara_Falls_Colorful.jpg" width="200" alt="Niagara Falls illuminated with colored lights">
                 <span>A colorful view of Niagara Falls</span>
                 
-                <img src="images/Niagara_Falls_Zoom-Out.jpg" width="200" alt="Niagara Falls from a distant perspective">
+                <img class="gallery-item" src="images/Niagara_Falls_Zoom-Out.jpg" width="200" alt="Niagara Falls from a distant perspective">
                 <span>Hikers watching sunset</span>
             </div>
             
@@ -127,5 +127,23 @@
         </div>
 
     </main>
+    <!-- Add the script tag just before the closing body tag -->
+    <script>
+        // This script adds keyboard control to gallery containers
+        document.querySelectorAll('.gallery-container').forEach((container) => {
+            container.setAttribute('tabindex', '0'); // Make the container focusable
+
+            // Add an event listener for the keydown event
+            container.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowLeft') {
+                    // Scroll left
+                    container.scrollBy({ left: -container.offsetWidth, behavior: 'smooth' });
+                } else if (event.key === 'ArrowRight') {
+                    // Scroll right
+                    container.scrollBy({ left: container.offsetWidth, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

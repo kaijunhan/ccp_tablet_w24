@@ -244,6 +244,8 @@ h1 {
     
     /* Create a horizontally scrollable container within each .item */
     .gallery-container {
+        outline: none;
+            /* Remove default outline to customize focus styles */
         display: flex;
         /* Use flexbox for horizontal alignment */
         overflow-x: auto;
@@ -257,6 +259,10 @@ h1 {
         height: 50vh;
         width: 100%;
         object-fit: contain;
+    }
+    .gallery-container:focus {
+        outline: 2px solid #005fcc;
+        /* Example focus style */
     }
 
     .gallery-item {
@@ -303,6 +309,17 @@ h1 {
         /* Increase font size for better visibility */
         padding: 12px 20px;
         /* Increase padding for easier tapping */
+    }
+
+    /* Enhance interactive elements for keyboard navigation */
+    a:focus,
+    nav ul li a:focus,
+    .gallery-item:focus,
+    input[type="submit"]:focus,
+    button:focus {
+        /* Existing styles */
+        outline: 3px solid #ff6347;
+        /* Or customize as needed */
     }
 }
 

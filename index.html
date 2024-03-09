@@ -35,6 +35,23 @@
         <div></div>
         <div></div>
     </main>
-    
+    <!-- Add the script tag just before the closing body tag -->
+    <script>
+        // This script adds keyboard control to gallery containers
+        document.querySelectorAll('.gallery-container').forEach((container) => {
+            container.setAttribute('tabindex', '0'); // Make the container focusable
+
+            // Add an event listener for the keydown event
+            container.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowLeft') {
+                    // Scroll left
+                    container.scrollBy({ left: -container.offsetWidth, behavior: 'smooth' });
+                } else if (event.key === 'ArrowRight') {
+                    // Scroll right
+                    container.scrollBy({ left: container.offsetWidth, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
