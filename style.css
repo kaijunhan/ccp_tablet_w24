@@ -34,6 +34,15 @@ nav {
     padding-top: 1em;
     padding-bottom: 1em;
     margin-bottom: 1em;
+    position: -webkit-sticky;
+        /* For Safari */
+        position: sticky;
+        top: 0px;
+        z-index: 1000;
+        /* Ensures nav is above other content */
+        background: #333;
+        /* Add a background color if it's not already there */
+        /* Other styling remains the same */
 }
 
 nav ul {
@@ -176,4 +185,142 @@ h1 {
     .skip-link {
         display: none;
     }
+}
+
+
+/* Tablet and below */
+@media only screen and (max-width: 1024px) {
+
+    .skip-link {
+        left: 10px;
+        /* Adjust as needed */
+        top: 10px;
+        /* Adjust as needed */
+        z-index: 10000;
+    }
+
+    .skip-link:focus,
+    .skip-link:active {
+        left: 0;
+        top: 0;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        z-index: 10000;
+        padding: 15px;
+        background-color: #FFF;
+        border: 2px solid #000;
+        text-align: center;
+        font-size: 1.2em;
+        /* Ensure the link is large enough to be a comfortable touch target */
+        min-width: 120px;
+        min-height: 44px;
+        /* Recommended touch target size */
+    }
+
+    nav ul li a {
+        font-size: 1em;
+        /* Adjust font size for better readability on tablets */
+        padding: 15px 20px;
+        /* Increase padding for easier touch interaction */
+    }
+
+    /* Adjust main content layout */
+    main {
+        grid-template-columns: 1fr;
+        overflow-y: scroll;
+        /* Allow vertical scrolling */
+        scroll-snap-type: y mandatory;
+        /* Enable scroll snapping on the y-axis */
+        /* Adjust grid column size for tablet screens */
+    }
+
+
+    .item img,
+    .item video {
+        height: auto;
+        /* Adjust the height to maintain aspect ratio */
+    }
+    
+    /* Create a horizontally scrollable container within each .item */
+    .gallery-container {
+        display: flex;
+        /* Use flexbox for horizontal alignment */
+        overflow-x: auto;
+        /* Allow horizontal scrolling */
+        scroll-snap-type: x mandatory;
+        /* Snap to children x-axis */
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scrolling on iOS devices */
+        gap: 1em;
+        /* Optional: Add gap between images */
+        height: 50vh;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .gallery-item {
+        flex: 0 0 auto;
+        /* Do not grow, do not shrink, base width on content */
+        scroll-snap-align: start;
+        /* Align to the start of the scroll container */
+        width: 100%;
+        /* Each image takes full width of the screen */
+        height: auto;
+        /* Height is determined by content */
+        margin-right: 1em;
+        /* Space between items */
+    }
+
+    /* Adjust headings and text for better readability */
+    h1,
+    .item h2,
+    .item h3 {
+        font-size: 1.25em;
+    }
+
+    .item p,
+    .item ul li {
+        font-size: 1em;
+    }
+
+    /* Improve interactive elements for touch */
+    a:hover,
+    nav ul li a:hover {
+        color: #ff6347;
+        /* Change hover color to something more noticeable */
+        background-color: #f0f0f0;
+        /* Add a subtle background change */
+    }
+
+    /* Additional styles to improve usability on tablet */
+    /* For example, you might want to increase the size of form inputs, buttons, etc., for easier interaction */
+    input[type="text"],
+    input[type="email"],
+    input[type="submit"],
+    button {
+        font-size: 1em;
+        /* Increase font size for better visibility */
+        padding: 12px 20px;
+        /* Increase padding for easier tapping */
+    }
+}
+
+/* Enhance interactive elements for touch, not just hover */
+/* Note: :hover styles are still included for devices that support hover */
+a,
+nav ul li a,
+input[type="submit"],
+button {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Smooth transition for a better user experience */
+}
+
+/* You might also want to include :focus styles for accessibility */
+a:focus,
+nav ul li a:focus,
+input[type="submit"]:focus,
+button:focus {
+    outline: 3px solid #ff6347;
+    /* Make the focus state clear for keyboard and screen reader users */
 }
